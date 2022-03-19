@@ -36,6 +36,7 @@
 
         <div class="d-flex justify-content-between">
           <button
+            id="btnCopySignature"
             type="button"
             class="btn btn-success btn-sm btn-block copy"
             data-clipboard-target="#signature"
@@ -151,7 +152,6 @@
 </template>
 
 <script lang="ts">
-import { DOMDirectiveTransforms } from '@vue/compiler-dom';
 import { defineComponent } from 'vue';
 import useClipboard from 'vue-clipboard3';
 
@@ -175,26 +175,8 @@ export default defineComponent({
     },
 
     copySignature() {
-      // let select: any;
-      // let range: any;
-      // var el = document.getElementById('signature'); //get element id
-      // if (window.getSelection && document.createRange) {
-      //   //Browser compatibility
-      //   select = window.getSelection();
-      //   if (select.toString() == '') {
-      //     //no text selection
-      //     window.setTimeout(() => {
-      //       range = document.createRange(); //range object
-      //       range.selectNodeContents(el); //sets Range
-      //       select.removeAllRanges(); //remove all ranges from selection
-      //       select.addRange(range); //add Range to a Selection.
-      //       document.execCommand('copy');
-      //     }, 1);
-      //   }
-      // }
-
-      let selection = window.getSelection()!;
-      let div = document.querySelector('#signature')!;
+      const selection = window.getSelection()!;
+      const div = document.querySelector('#signature')!;
 
       if (selection.rangeCount > 0) {
         selection.removeAllRanges();

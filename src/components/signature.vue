@@ -2,6 +2,15 @@
   <div class="container mt-5 col-md-4">
     <div class="card shadow p-3 mb-5 bg-white rounded">
       <img src="@/assets/tatilmaximum.logo.jpeg" alt="" />
+      <div class="row pt-2">
+        <div class="col text-center">
+          <img src="@/assets/maxirez.logo.png" width="200" alt="" />
+        </div>
+        <div class="col text-center">
+          <img src="@/assets/resclick.logo.png" width="250" height="60" alt="" />
+        </div>
+      </div>
+
       <div class="card-body">
         <form>
           <div class="mb-3">

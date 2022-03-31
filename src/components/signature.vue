@@ -1,13 +1,16 @@
 <template>
   <div class="container mt-5 col-md-4">
     <div class="card shadow p-3 mb-5 bg-white rounded">
-      <img src="@/assets/tatilmaximum.logo.jpeg" alt="" />
-      <div class="row pt-2">
-        <div class="col text-center">
-          <img src="@/assets/maxirez.logo.png" width="200" alt="" />
+      <div class="row">
+        <div class="text-center">
+          <img src="@/assets/tatilmaximum.logo.jpeg" class="img-fluid" alt="" />
         </div>
-        <div class="col text-center">
-          <img src="@/assets/resclick.logo.png" width="250" height="60" alt="" />
+        <div class="col text-center mt-3">
+          <img src="@/assets/maxirez.logo.png" class="img-fluid" alt="" />
+        </div>
+
+        <div class="col text-center mt-3">
+          <img src="@/assets/resclick.logo.png" class="img-fluid" alt="" />
         </div>
       </div>
 
@@ -97,13 +100,15 @@
         v-else-if="selectedCompany === 'Tatil Maximum'"
         src="https://tatilmaximum.com.tr/_nuxt/img/tatilmaximum.3d344ba.png"
         width="158"
+        height="30"
       />
       <img
-        v-else-if="selectedCompany === 'Res Click'"
+        v-else-if="selectedCompany === 'ResClick'"
         src="https://tatilmaximum.com.tr/_nuxt/img/resclick.b771000.png"
         width="158"
       />
 
+      <br />
       <br />
       <b>Tatilmaximum Tur. ve Tic. Ltd. Şti.</b>
       <br />
@@ -132,8 +137,25 @@
           <td style="border: none">E-Mail</td>
           <td style="text-align: right; border: none">:</td>
           <td style="border: none">
-            <a href="mailto: info@tatilmaximum.com.tr">
+            <a
+              v-if="selectedCompany === 'Maxi Rez'"
+              href="mailto: info@maxirez.com"
+            >
+              info@maxirez.com</a
+            >
+
+            <a
+              v-else-if="selectedCompany === 'Tatil Maximum'"
+              href="mailto: info@tatilmaximum.com.tr"
+            >
               info@tatilmaximum.com.tr</a
+            >
+
+            <a
+              v-else-if="selectedCompany === 'ResClick'"
+              href="mailto: info@resclick.com"
+            >
+              info@resclick.com</a
             >
           </td>
         </tr>
@@ -141,8 +163,18 @@
           <td style="border: none">Web</td>
           <td style="text-align: right; border: none">:</td>
           <td style="border: none">
-            <a href="http://www.tatilmaximum.com.tr/"
+            <a v-if="selectedCompany === 'Maxi Rez'" href="https://maxirez.com/"
+              >www.maxirez.com</a
+            >
+            <a
+              v-else-if="selectedCompany === 'Tatil Maximum'"
+              href="http://www.tatilmaximum.com.tr/"
               >www.tatilmaximum.com.tr</a
+            >
+            <a
+              v-else-if="selectedCompany === 'ResClick'"
+              href="https://resclick.com/"
+              >www.resclick.com</a
             >
           </td>
         </tr>
@@ -170,8 +202,24 @@ export default defineComponent({
       selectedCompany: null,
       employeeTitle: null,
       employeeName: null,
-      companies: ['Maxi Rez', 'Res Click', 'Tatil Maximum'],
-      titles: ['Yazılım', 'Satış', 'test', 'deneme', 'Cart', 'Curt'],
+      companies: ['Maxi Rez', 'ResClick', 'Tatil Maximum'],
+      titles: [
+        'Çağrı Merkezi Müşteri Temsilcisi',
+        'Satış Sonrası Destek Temsilcisi',
+        'Takım Lideri',
+        'Çağrı Merkezi Şefi',
+        'Fiyatlandırma Şefi',
+        'Kontrat Asistanı',
+        'Kontrat Müdürü',
+        'Rezervasyon Sorumlusu',
+        'Fiyatlandırma Sorumlusu',
+        'Kalite ve Eğitim Sorumlusu',
+        'Krediler Şefi',
+        'Muhasebe Şefi',
+        'Finans Sorumlusu',
+        'Finans Müdürü',
+        'Operasyon Müdür Yardımcısı',
+      ],
     };
   },
 

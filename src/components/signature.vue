@@ -1,16 +1,21 @@
 <template>
   <div class="container mt-5 col-md-4">
     <div class="card shadow p-3 mb-5 bg-white rounded">
-      <div class="row">
-        <div class="text-center">
-          <img src="@/assets/tatilmaximum.logo.jpeg" class="img-fluid" alt="" />
-        </div>
-        <div class="col text-center mt-3">
-          <img src="@/assets/maxirez.logo.png" class="img-fluid" alt="" />
+      <div class="text-center">
+        <img src="@/assets/tatilmaximum.logo.png" class="img-fluid" alt="" />
+      </div>
+
+      <div class="row mt-2">
+        <div class="col-lg-6 text-center">
+          <img src="@/assets/maxirez.logo.png" class="logoMaxiRez" alt="" />
         </div>
 
-        <div class="col text-center mt-3">
-          <img src="@/assets/resclick.logo.png" class="img-fluid" alt="" />
+        <div class="col-lg-6 text-center pt-2">
+          <img
+            src="@/assets/resclick.logo.png"
+            class="logoResClick pe-4"
+            alt=""
+          />
         </div>
       </div>
 
@@ -92,29 +97,46 @@
       </p>
 
       <img
-        v-if="selectedCompany === 'Maxi Rez'"
+        width="180"
         src="https://maxirez.com/images/maxirez.png"
-        width="158"
+        v-if="selectedCompany === 'Maxi Rez'"
       />
+
       <img
+        width="200"
+        src="https://i.imgur.com/LSPfsmd.png"
         v-else-if="selectedCompany === 'Tatil Maximum'"
-        src="https://tatilmaximum.com.tr/_nuxt/img/tatilmaximum.3d344ba.png"
-        width="158"
-        height="30"
       />
+
       <img
+        width="180"
+        src="https://i.imgur.com/NYcJ5VE.png"
         v-else-if="selectedCompany === 'ResClick'"
-        src="https://tatilmaximum.com.tr/_nuxt/img/resclick.b771000.png"
-        width="158"
       />
 
       <br />
       <br />
-      <b>Tatilmaximum Tur. ve Tic. Ltd. Şti.</b>
-      <br />
-      Güzeloba Mahallesi, Çağlayangil Caddesi No: 10/B
-      <br />
-      07230 Muratpaşa/Antalya
+      <b v-if="selectedCompany === 'Tatil Maximum'"
+        >Tatilmaximum Tur. ve Tic. Ltd. Şti.</b
+      >
+      <b v-else-if="selectedCompany === 'ResClick'">ResClick Yazılım</b>
+      <b v-else-if="selectedCompany === 'Maxi Rez'"
+        >Bertouristic İnş. Org. Ltd. Şti.</b
+      >
+
+
+      <p v-if="selectedCompany === 'Tatil Maximum'">
+        Güzeloba Mahallesi, Çağlayangil Caddesi No: 10/A <br />
+        07230 Muratpaşa/Antalya
+      </p>
+      <p v-else-if="selectedCompany === 'ResClick'">
+        Güzeloba Mahallesi, Çağlayangil Caddesi No: 10/A <br />
+        07230 Muratpaşa/Antalya
+      </p>
+      <p v-else-if="selectedCompany === 'Maxi Rez'">
+        Güzeloba Mahallesi, Çağlayangil Caddesi No: 10/B <br />
+        07230 Muratpaşa/Antalya
+      </p>
 
       <table
         border-collapse="collapse"
@@ -264,4 +286,22 @@ export default defineComponent({
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+.img {
+  height: auto;
+  width: 200px;
+}
+
+.logoResClick {
+  height: auto;
+  width: 250px;
+}
+.logoMaxiRez {
+  height: auto;
+  width: 200px;
+}
+.logoTatilMax {
+  height: auto;
+  width: auto;
+}
+</style>

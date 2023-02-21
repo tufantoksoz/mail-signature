@@ -91,7 +91,7 @@
           font-size: medium;
           font-family: Tahoma;
           border: none;
-          width: 100%;
+          width: 450px;
         "
       >
         <tbody>
@@ -134,7 +134,7 @@
 
                       <img
                         v-if="selectedCompany === 'Maxi Rez'"
-                        width="165"
+                        width="180"
                         height="50"
                         style="
                           margin-left: auto;
@@ -145,8 +145,8 @@
                       />
 
                       <img
-                        v-else-if="selectedCompany === 'Tatil Maximum'"
-                        width="200"
+                        v-else-if="selectedCompany === 'Tatilmaximum'"
+                        width="180"
                         height="21"
                         style="
                           margin-left: auto;
@@ -195,8 +195,8 @@
                         border-left: 1px solid rgb(0, 0, 0);
                       "
                     ></td>
-                    <td width="10" style="border: none">
-                      <div style="width: 15px"></div>
+                    <td width="5" style="border: none">
+                      <div style="width: 5px"></div>
                     </td>
                     <td style="vertical-align: middle; border: none">
                       <table
@@ -207,70 +207,109 @@
                           font-size: medium;
                           font-family: Arial;
                           border: none;
+                          width: 200px;
                         "
                       >
                         <tbody>
-                          <tr height="25" style="vertical-align: middle">
+                          <tr height="20" style="vertical-align: middle">
                             <td
                               style="
                                 font-size: 12px;
                                 padding: 0px;
                                 color: #808080;
                                 border: none;
+                                white-space: nowrap;
                               "
                             >
-                              <p v-if="selectedCompany === 'Tatil Maximum'">
-                                Güzeloba mah. Çağlayangil Cd. No:10-A, 07230
-                                Muratpaşa/Antalya
+                              <span>Güzeloba Mah. Çağlayangil Cd.</span>
+                            </td>
+                          </tr>
 
-                                <br />
+                          <tr height="20" style="vertical-align: middle">
+                            <td
+                              style="
+                                font-size: 12px;
+                                padding: 0px;
+                                color: #808080;
+                                border: none;
+                                white-space: nowrap;
+                              "
+                            >
+                              <span v-if="selectedCompany === 'Tatilmaximum'">
+                                No:10-A, 07230 Muratpaşa/Antalya
+                              </span>
+
+                              <span v-else-if="selectedCompany === 'ResClick'">
+                                No:10-A, 07230 Muratpaşa/Antalya
+                              </span>
+
+                              <span
+                                v-else-if="selectedCompany === 'Bertouristic'"
+                              >
+                                No:10-A, 07230 Muratpaşa/Antalya
+                              </span>
+
+                              <span v-else-if="selectedCompany === 'Maxi Rez'">
+                                No:10-B, 07230, Muratpaşa/Antalya
+                              </span>
+                            </td>
+                          </tr>
+
+                          <tr height="20" style="vertical-align: middle">
+                            <td
+                              style="
+                                font-size: 12px;
+                                padding: 0px;
+                                color: #808080;
+                                border: none;
+                                white-space: nowrap;
+                              "
+                            >
+                              <span v-if="selectedCompany === 'Tatilmaximum'">
                                 <a
                                   href="http://www.tatilmaximum.com.tr/"
                                   style="color: #808080"
                                   >www.tatilmaximum.com.tr</a
                                 >
-                                <br />
-                                <span> Tel: 0850 300 0 444 </span>
-                              </p>
+                              </span>
 
-                              <p v-else-if="selectedCompany === 'ResClick'">
-                                Güzeloba mah, Çağlayangil Cd. No:10-A, 07230
-                                Muratpaşa/Antalya
-                                <br />
+                              <span v-if="selectedCompany === 'ResClick'">
                                 <a
                                   href="https://resclick.com/"
                                   style="color: #808080"
                                   >www.resclick.com</a
                                 >
-                                <br />
-                                <span> Tel: 0850 300 0 444 </span>
-                              </p>
+                              </span>
 
-                              <p v-else-if="selectedCompany === 'Maxi Rez'">
-                                Güzeloba mah. Çağlayangil Cd. No:10-B, 07230
-                                Muratpaşa/Antalya
-                                <br />
+                              <span v-if="selectedCompany === 'Maxi Rez'">
                                 <a
                                   href="https://maxirez.com/"
                                   style="color: #808080"
                                   >www.maxirez.com
                                 </a>
-                                <br />
-                                <span> Tel: 0850 300 0 444 </span>
-                              </p>
+                              </span>
 
-                              <p v-else-if="selectedCompany === 'Bertouristic'">
-                                Güzeloba mah. Çağlayangil Cd. No:10-A, 07230
-                                Muratpaşa/Antalya
-                                <br />
+                              <span v-if="selectedCompany === 'Bertouristic'">
                                 <a
                                   href="https://bertouristic.com/"
                                   style="color: #808080"
                                   >www.bertouristic.com</a
                                 >
-                                <br />
-                                <span> Tel: 0850 300 0 444 </span>
-                              </p>
+                              </span>
+                            </td>
+                          </tr>
+
+                          <tr height="20" style="vertical-align: middle">
+                            <td
+                              style="
+                                font-size: 12px;
+                                padding: 0px;
+                                color: #808080;
+                                border: none;
+                                white-space: nowrap;
+                              "
+                            >
+                              Tel: 0850 300 0 444
                             </td>
                           </tr>
                         </tbody>
@@ -309,7 +348,7 @@ export default defineComponent({
       selectedCompany: null,
       employeeTitle: null,
       employeeName: null,
-      companies: ['Maxi Rez', 'ResClick', 'Tatil Maximum', 'Bertouristic'],
+      companies: ['Maxi Rez', 'ResClick', 'Tatilmaximum', 'Bertouristic'],
       titles: [
         'Genel Müdür',
         'Çağrı Merkezi Müşteri Temsilcisi',

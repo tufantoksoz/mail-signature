@@ -220,48 +220,56 @@
                               "
                             >
                               <p v-if="selectedCompany === 'Tatil Maximum'">
-                                Güzeloba, Çağlayangil Caddesi No:10/A, 07230
+                                Güzeloba mah. Çağlayangil Cd. No:10-A, 07230
                                 Muratpaşa/Antalya
 
                                 <br />
-                                <a href="http://www.tatilmaximum.com.tr/"
+                                <a
+                                  href="http://www.tatilmaximum.com.tr/"
+                                  style="color: #808080"
                                   >www.tatilmaximum.com.tr</a
                                 >
                                 <br />
-                                <span> Tel: 0850 300 444 </span>
+                                <span> Tel: 0850 300 0 444 </span>
                               </p>
 
                               <p v-else-if="selectedCompany === 'ResClick'">
-                                Güzeloba, Çağlayangil Caddesi No:10/A, 07230
+                                Güzeloba mah, Çağlayangil Cd. No:10-A, 07230
                                 Muratpaşa/Antalya
                                 <br />
-                                <a href="https://resclick.com/"
+                                <a
+                                  href="https://resclick.com/"
+                                  style="color: #808080"
                                   >www.resclick.com</a
                                 >
                                 <br />
-                                <span> Tel: 0850 300 444 </span>
+                                <span> Tel: 0850 300 0 444 </span>
                               </p>
 
                               <p v-else-if="selectedCompany === 'Maxi Rez'">
-                                Güzeloba, Çağlayangil Caddesi No:10/B, 07230
+                                Güzeloba mah. Çağlayangil Cd. No:10-B, 07230
                                 Muratpaşa/Antalya
                                 <br />
-                                <a href="https://maxirez.com/"
+                                <a
+                                  href="https://maxirez.com/"
+                                  style="color: #808080"
                                   >www.maxirez.com
                                 </a>
                                 <br />
-                                <span> Tel: 0850 300 444 </span>
+                                <span> Tel: 0850 300 0 444 </span>
                               </p>
 
                               <p v-else-if="selectedCompany === 'Bertouristic'">
-                                Güzeloba, Çağlayangil Caddesi No:10/B, 07230
+                                Güzeloba mah. Çağlayangil Cd. No:10-A, 07230
                                 Muratpaşa/Antalya
                                 <br />
-                                <a href="https://bertouristic.com/"
+                                <a
+                                  href="https://bertouristic.com/"
+                                  style="color: #808080"
                                   >www.bertouristic.com</a
                                 >
                                 <br />
-                                <span> Tel: 0850 300 444 </span>
+                                <span> Tel: 0850 300 0 444 </span>
                               </p>
                             </td>
                           </tr>
@@ -332,7 +340,7 @@ export default defineComponent({
       const { toClipboard } = useClipboard();
       const div = document.querySelector('#signature')!.innerHTML;
 
-      await toClipboard(div);
+      return await toClipboard(div);
     },
 
     async copySignature() {
@@ -350,19 +358,16 @@ export default defineComponent({
       selection.removeAllRanges();
     },
 
-    saveAs() {
-      const div = document.querySelector('#signature')?.innerHTML;
-      const element = document.createElement('a');
+    async saveAs() {
+      let div = [document.querySelector('#signature')!.innerHTML];
 
-      element.setAttribute('href', 'data:text/plain;charset=utf-8,' + div);
-      element.setAttribute('download', 'signature.html');
-
-      element.style.display = 'none';
-      document.body.appendChild(element);
-
-      element.click();
-
-      document.body.removeChild(element);
+      const bl = new Blob(div, { type: 'text/html' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(bl);
+      a.download = 'signature.html';
+      a.hidden = true;
+      document.body.appendChild(a);
+      a.click();
     },
   },
 });

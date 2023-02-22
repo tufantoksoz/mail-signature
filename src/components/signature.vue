@@ -368,8 +368,9 @@ export default defineComponent({
         'Finans Müdürü',
         'Operasyon Müdür Yardımcısı',
         'Ürün Müdür Yardımcısı',
-        'Assistant Product Manager',
+        'Asst. Product Manager',
         'Asst. Product & Reservation',
+        'Asst. General Manager'
       ],
     };
   },

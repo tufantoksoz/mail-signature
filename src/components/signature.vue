@@ -1,21 +1,33 @@
 <template>
   <div class="container mt-5 col-md-4">
     <div class="card shadow p-3 mb-5 bg-white rounded">
-      <div class="text-center">
-        <img src="@/assets/tatilmaximum.logo.png" class="img-fluid" alt="" />
+      <div class="text-center col-12">
+        <img
+          src="@/assets/bertouristic.logo.png"
+          class="img-fluid"
+          style="height: 60px"
+        />
       </div>
 
-      <div class="row mt-2">
-        <div class="col-lg-6 text-center">
-          <img src="@/assets/maxirez.logo.png" class="logoMaxiRez" alt="" />
-        </div>
+      <div class="text-center col-12">
+        <img
+          src="@/assets/tatilmaximum.logo.png"
+          class="img-fluid"
+          style="height: 40px"
+        />
+      </div>
 
-        <div class="col-lg-6 text-center pt-2">
+      <div class="row col-12 mt-2">
+        <div class="col-12 text-center pt-2">
           <img
             src="@/assets/resclick.logo.png"
             class="logoResClick pe-4"
-            alt=""
+            style="height: 40px"
           />
+        </div>
+
+        <div class="col-12 text-center">
+          <img src="@/assets/maxirez.logo.png" class="logoMaxiRez" />
         </div>
       </div>
 
@@ -35,19 +47,26 @@
               v-model="employeeName"
               type="text"
               class="form-control"
-              placeholder="Lütfen Adınızı ve Soyadınızı Giriniz"
+              placeholder="İsim Soyisim"
             />
           </div>
 
           <div class="mb-3">
             <select class="form-select" v-model="employeeTitle">
-              <option value="null" disabled hidden>
-                İş Tanımınızı Seçiniz
-              </option>
+              <option value="null" disabled hidden>İş Tanımı</option>
               <option v-for="(title, index) in titles" :key="index">
                 {{ title }}
               </option>
             </select>
+          </div>
+
+          <div class="mb-3">
+            <input
+              v-model="phone"
+              type="text"
+              class="form-control"
+              placeholder="Tel. No"
+            />
           </div>
         </form>
 
@@ -84,6 +103,19 @@
 
   <div class="container col-md-4">
     <div id="signature" style="font-family: Tahoma; font-size: 12px">
+      <p
+        style="
+          margin: 0px;
+          margin-bottom: 20px;
+          color: #808080;
+          font-size: 13px;
+          font-weight: 500;
+          line-height: 22px;
+          border: none;
+        "
+      >
+        Saygılarımla – My Best Regards – Mit freundlichen Grüßen
+      </p>
       <table
         cellpadding="0"
         cellspacing="0"
@@ -111,7 +143,7 @@
                       <span
                         style="
                           margin: 0px;
-                          font-size: 15px;
+                          font-size: 16px;
                           color: #808080;
                           font-weight: 600;
                         "
@@ -207,21 +239,33 @@
                           font-size: medium;
                           font-family: Arial;
                           border: none;
-                          width: 200px;
                         "
                       >
                         <tbody>
-                          <tr height="20" style="vertical-align: middle">
+                          <tr
+                            height="20"
+                            style="vertical-align: middle; width: 250px"
+                          >
                             <td
                               style="
                                 font-size: 12px;
                                 padding: 0px;
                                 color: #808080;
                                 border: none;
+                                width: 250px;
                                 white-space: nowrap;
                               "
                             >
-                              <span>Güzeloba Mah. Çağlayangil Cd.</span>
+                              <span
+                                style="
+                                  font-size: 12px;
+                                  color: #808080;
+                                  border: none;
+                                  width: 250px;
+                                  white-space: nowrap;
+                                "
+                                >Güzeloba Mah. Çağlayangil Cd.</span
+                              >
                             </td>
                           </tr>
 
@@ -232,25 +276,29 @@
                                 padding: 0px;
                                 color: #808080;
                                 border: none;
+                                width: 250px;
                                 white-space: nowrap;
                               "
                             >
-                              <span v-if="selectedCompany === 'Tatilmaximum'">
-                                No:10-A, 07230 Muratpaşa/Antalya
+                              <span
+                                v-if="selectedCompany === 'Tatilmaximum'"
+                                style="white-space: nowrap; width: 250px"
+                              >
+                                No:10-A, 07230, Muratpaşa/Antalya - Türkiye
                               </span>
 
                               <span v-else-if="selectedCompany === 'ResClick'">
-                                No:10-A, 07230 Muratpaşa/Antalya
+                                No:10-A, 07230 Muratpaşa/Antalya - Türkiye
                               </span>
 
                               <span
                                 v-else-if="selectedCompany === 'Bertouristic'"
                               >
-                                No:10-A, 07230 Muratpaşa/Antalya
+                                No:10-A, 07230, Muratpaşa/Antalya - Türkiye
                               </span>
 
                               <span v-else-if="selectedCompany === 'Maxi Rez'">
-                                No:10-B, 07230, Muratpaşa/Antalya
+                                No:10-B, 07230, Muratpaşa/Antalya - Türkiye
                               </span>
                             </td>
                           </tr>
@@ -309,7 +357,84 @@
                                 white-space: nowrap;
                               "
                             >
-                              Tel: 0850 300 0 444
+                              P.
+                              <a href="tel:908503000444"> +90 850 300 0 444</a>
+                            </td>
+                          </tr>
+
+                          <tr height="20" style="vertical-align: middle">
+                            <td
+                              style="
+                                font-size: 12px;
+                                padding: 0px;
+                                color: #808080;
+                                border: none;
+                                white-space: nowrap;
+                              "
+                            >
+                              M.
+                              <a :href="'tel:90' + phone">+90 {{ phone }}</a>
+                            </td>
+                          </tr>
+
+                          <tr height="20" style="vertical-align: middle">
+                            <td
+                              style="
+                                font-size: 11px;
+                                padding-top: 16px;
+                                color: #808080;
+                                border: none;
+                                white-space: nowrap;
+                              "
+                            >
+                              <a href="mailto:stopsale@bertouristic.com"
+                                >stopsale@bertouristic.com</a
+                              >
+                            </td>
+                          </tr>
+                          <tr height="20" style="vertical-align: middle">
+                            <td
+                              style="
+                                font-size: 11px;
+                                padding: 0px;
+                                color: #808080;
+                                border: none;
+                                white-space: nowrap;
+                              "
+                            >
+                              <a href="mailto:product@bertouristic.com"
+                                >product@bertouristic.com</a
+                              >
+                            </td>
+                          </tr>
+                          <tr height="20" style="vertical-align: middle">
+                            <td
+                              style="
+                                font-size: 11px;
+                                padding: 0px;
+                                color: #808080;
+                                border: none;
+                                white-space: nowrap;
+                              "
+                            >
+                              <a href="mailto:accounting@bertouristic.com"
+                                >accounting@bertouristic.com</a
+                              >
+                            </td>
+                          </tr>
+                          <tr height="20" style="vertical-align: middle">
+                            <td
+                              style="
+                                font-size: 11px;
+                                padding: 0px;
+                                color: #808080;
+                                border: none;
+                                white-space: nowrap;
+                              "
+                            >
+                              <a href="mailto:reservation@bertouristic.com"
+                                >reservation@bertouristic.com</a
+                              >
                             </td>
                           </tr>
                         </tbody>
@@ -348,16 +473,24 @@ export default defineComponent({
       selectedCompany: null,
       employeeTitle: null,
       employeeName: null,
+      phone: null,
       companies: ['Maxi Rez', 'ResClick', 'Tatilmaximum', 'Bertouristic'],
       titles: [
         'Genel Müdür',
+        'Business Development Manager',
+        'Asst. Product Manager',
+        'Asst. General Manager',
+        'Finans Müdürü',
+        'Kontrat Müdürü',
+        'Takım Lideri',
+        'Asst. Product & Reservation',
         'Çağrı Merkezi Müşteri Temsilcisi',
         'Satış Sonrası Destek Temsilcisi',
-        'Takım Lideri',
+        'Operasyon Müdür Yardımcısı',
+        'Ürün Müdür Yardımcısı',
         'Çağrı Merkezi Şefi',
         'Fiyatlandırma Şefi',
         'Kontrat Asistanı',
-        'Kontrat Müdürü',
         'Rezervasyon Sorumlusu',
         'Fiyatlandırma Sorumlusu',
         'Kalite ve Eğitim Sorumlusu',
@@ -365,12 +498,6 @@ export default defineComponent({
         'Muhasebe Şefi',
         'Muhasebe Personeli',
         'Finans Sorumlusu',
-        'Finans Müdürü',
-        'Operasyon Müdür Yardımcısı',
-        'Ürün Müdür Yardımcısı',
-        'Asst. Product Manager',
-        'Asst. Product & Reservation',
-        'Asst. General Manager'
       ],
     };
   },

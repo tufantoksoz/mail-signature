@@ -442,6 +442,12 @@
                     </td>
                   </tr>
 
+                  <tr>
+                    <td colspan="5" style="padding-top: 30px; border: none">
+                      <img width="450" src="https://i.imgur.com/qg4zCVg.jpeg" />
+                    </td>
+                  </tr>
+
                   <tr style="font-size: 12px; color: #808080">
                     <td colspan="5" style="padding-top: 30px; border: none">
                       Bu e-postanın içeriği gizlidir ve yalnızca mesajda
@@ -464,8 +470,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import useClipboard from 'vue-clipboard3';
+import { defineComponent } from "vue";
+import useClipboard from "vue-clipboard3";
 
 export default defineComponent({
   data() {
@@ -474,30 +480,31 @@ export default defineComponent({
       employeeTitle: null,
       employeeName: null,
       phone: null,
-      companies: ['Maxi Rez', 'ResClick', 'Tatilmaximum', 'Bertouristic'],
+      companies: ["Maxi Rez", "ResClick", "Tatilmaximum", "Bertouristic"],
       titles: [
-        'Genel Müdür',
-        'Business Development Manager',
-        'Asst. Product Manager',
-        'Asst. General Manager',
-        'Finans Müdürü',
-        'Kontrat Müdürü',
-        'Takım Lideri',
-        'Asst. Product & Reservation',
-        'Çağrı Merkezi Müşteri Temsilcisi',
-        'Satış Sonrası Destek Temsilcisi',
-        'Operasyon Müdür Yardımcısı',
-        'Ürün Müdür Yardımcısı',
-        'Çağrı Merkezi Şefi',
-        'Fiyatlandırma Şefi',
-        'Kontrat Asistanı',
-        'Rezervasyon Sorumlusu',
-        'Fiyatlandırma Sorumlusu',
-        'Kalite ve Eğitim Sorumlusu',
-        'Krediler Şefi',
-        'Muhasebe Şefi',
-        'Muhasebe Personeli',
-        'Finans Sorumlusu',
+        "Genel Müdür",
+        "Business Development Manager",
+        "Asst. Product Manager",
+        "Asst. General Manager",
+        "Finans Müdürü",
+        "Kontrat Müdürü",
+        "Takım Lideri",
+        "Operasyon Müdürü",
+        "Asst. Product & Reservation",
+        "Çağrı Merkezi Müşteri Temsilcisi",
+        "Satış Sonrası Destek Temsilcisi",
+        "Operasyon Müdür Yardımcısı",
+        "Ürün Müdür Yardımcısı",
+        "Çağrı Merkezi Şefi",
+        "Fiyatlandırma Şefi",
+        "Kontrat Asistanı",
+        "Rezervasyon Sorumlusu",
+        "Fiyatlandırma Sorumlusu",
+        "Kalite ve Eğitim Sorumlusu",
+        "Krediler Şefi",
+        "Muhasebe Şefi",
+        "Muhasebe Personeli",
+        "Finans Sorumlusu",
       ],
     };
   },
@@ -505,14 +512,14 @@ export default defineComponent({
   methods: {
     async copyHtml() {
       const { toClipboard } = useClipboard();
-      const div = document.querySelector('#signature')!.innerHTML;
+      const div = document.querySelector("#signature")!.innerHTML;
 
       return await toClipboard(div);
     },
 
     async copySignature() {
       const selection = window.getSelection()!;
-      const div = document.querySelector('#signature')!;
+      const div = document.querySelector("#signature")!;
 
       if (selection.rangeCount > 0) {
         selection.removeAllRanges();
@@ -521,17 +528,17 @@ export default defineComponent({
       const range = document.createRange();
       range.selectNode(div);
       selection.addRange(range);
-      document.execCommand('copy');
+      document.execCommand("copy");
       selection.removeAllRanges();
     },
 
     async saveAs() {
-      let div = [document.querySelector('#signature')!.innerHTML];
+      let div = [document.querySelector("#signature")!.innerHTML];
 
-      const bl = new Blob(div, { type: 'text/html' });
-      const a = document.createElement('a');
+      const bl = new Blob(div, { type: "text/html" });
+      const a = document.createElement("a");
       a.href = URL.createObjectURL(bl);
-      a.download = 'signature.html';
+      a.download = "signature.html";
       a.hidden = true;
       document.body.appendChild(a);
       a.click();

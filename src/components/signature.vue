@@ -444,7 +444,7 @@
 
                   <tr>
                     <td colspan="5" style="padding-top: 30px; border: none">
-                      <img width="450" src="https://i.imgur.com/qg4zCVg.jpeg" />
+                      <img width="450" src="https://i.imgur.com/fo414nM.png" />
                     </td>
                   </tr>
 
